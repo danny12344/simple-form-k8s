@@ -1,11 +1,18 @@
 function handleSubmit(event) {
-  event.preventDefault(); // Prevents the default form submission
-  
-  // Get the form values
-  var name = document.getElementById("name").value;
-  var password = document.getElementById("password").value;
-  
-  // Display the form contents in the div element
-  var formResultsDiv = document.getElementById("formResults");
-  formResultsDiv.textContent = "Name: " + name + "<br>" + "Password: " + password;
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const password = document.getElementById("password").value;
+
+  fetch("/submit", {
+    method: "POST",
+    body: new URLSearchParams({
+      name: name,
+      password: password
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("formResults").innerText = data.message;
+    });
 }

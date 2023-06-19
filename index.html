@@ -4,9 +4,8 @@
   <title>Daniel's Form</title>
 </head>
 <body>
-  <script src="script.js"></script>
   <h1> Daniel's Form</h1>
-  <form onsubmit="handleSubmit(event)" >
+  <form onsubmit="handleSubmit(event)">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
     
@@ -16,5 +15,29 @@
     <input type="submit" value="Submit">
   </form>
   <div id="formResults"></div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const password = document.getElementById("password").value;
+
+      fetch("http://localhost:8000/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          password: password
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("formResults").innerText = data.message;
+        });
+    }
+  </script>
 </body>
 </html>
