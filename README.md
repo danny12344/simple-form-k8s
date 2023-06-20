@@ -1,8 +1,15 @@
-# Simple form in Docker image
+# Simple Containerised form webapp
+
+Contains containerised frontend & seperately containerised backend
+
+## What it does:
+
+- takes input from username & password fields
+- stores them in python variables in fastapi backend
 
 ## Dockerfile for deploying to Google Cloud Run
 
-Instructions to deploy:
+### <u>Instructions to deploy</u>
 
 
 Initialise Google Cloud CLI:
