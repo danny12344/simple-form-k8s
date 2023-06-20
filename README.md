@@ -9,6 +9,22 @@ Contains containerised frontend & seperately containerised backend
 
 ## Dockerfile for deploying to Google Cloud Run
 
+### <u>Instructions to run locally</u>
+
+Build docker images:
+
+```bash
+docker build -t formapi .
+docker build -t frontend .
+```
+
+Run docker images:
+
+```bash
+docker run -it -p 8080:8080 formapi
+docker run -it -p 8000:80 frontend
+```
+
 ### <u>Instructions to deploy</u>
 
 
