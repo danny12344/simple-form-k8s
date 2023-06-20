@@ -40,6 +40,5 @@ ENV PORT=80
 EXPOSE 80
 
 # Start Nginx service
-CMD ["nginx", "-g", "daemon off;"]
-# Set the command to start the FastAPI application - is this needed?
-# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["nginx", "-g", "daemon off;"] 
+

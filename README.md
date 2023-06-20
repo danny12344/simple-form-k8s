@@ -1,6 +1,17 @@
 # Simple form in Docker image
 
-## Dockerfile for using with Google Cloud Run
+## Dockerfile for deploying to Google Cloud Run
 
-TODO: 
-- create backend fastapi
+Instructions to deploy:
+
+
+Initialise Google Cloud CLI:
+```bash
+gcloud init
+```
+
+Deploy to GCR:
+
+```bash
+gcloud run deploy
+```
