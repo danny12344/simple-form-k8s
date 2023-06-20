@@ -17,20 +17,20 @@ RUN rm -f /etc/nginx/conf.d/default.conf
 
 # Copy the application code to the container
 COPY index.html .
-COPY script.js .
+# COPY script.js .
 
 # Copy your modified Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy your HTML and JS files to the appropriate directory
 COPY index.html /usr/share/nginx/html/
-COPY script.js /usr/share/nginx/html/
+# COPY script.js /usr/share/nginx/html/
 
 # Copy the requirements.txt file to the container
 COPY requirements.txt .
 
 # Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the host and port for the FastAPI application
 ENV HOST=0.0.0.0
