@@ -50,7 +50,7 @@ Expose app to the internet
 kubectl expose deployment api-app --type LoadBalancer --port 8080 --target-port 8080
 ```
 
-Deploy to GCR:
+#### Deploy to GCR:
 
 ```bash
 gcloud run deploy
