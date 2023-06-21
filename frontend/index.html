@@ -23,10 +23,10 @@
       const name = document.getElementById("name").value;
       const password = document.getElementById("password").value;
 
-      fetch("http://localhost:8080/submit", {
+      fetch("http://localhost:8000/submit", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json "
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           name: name,
@@ -36,6 +36,11 @@
         .then(response => response.json())
         .then(data => {
           document.getElementById("formResults").innerText = data.message;
+          fetch("http://localhost:8000/data")
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById("formResults").innerText += "\nUsername: " + data.username + "\nPassword: " + data.password;
+            });
         });
     }
   </script>
